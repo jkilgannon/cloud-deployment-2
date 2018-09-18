@@ -23,7 +23,7 @@ for x in range(1,4):
      # Request private IP addresses for everyone.
      iface = node.addInterface("if1")
      iface.component_id = "eth1"
-     iface.addAddress(rspec.IPv4Address("192.168.1."+str(x), "255.255.255.0"))
+     iface.addAddress(pg.IPv4Address("192.168.1."+str(x), "255.255.255.0"))
      # Request a public IP address for node1
      if (x == 1):
           node.routable_control_ip = "true"
