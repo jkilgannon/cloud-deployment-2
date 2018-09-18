@@ -15,7 +15,7 @@ pc = portal.Context()
 # Create a Request object to start building the RSpec.
 request = pc.makeRequestRSpec()
 
-for x in range(1,4)
+for x in range(1,4):
      # Add a XenVM node to the request.
      node = request.XenVM("node"+x)
      # Use Centos
