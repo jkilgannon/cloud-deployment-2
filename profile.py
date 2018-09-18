@@ -25,7 +25,7 @@ for x in range(1,4):
      iface.component_id = "eth1"
      iface.addAddress(rspec.IPv4Address("192.168.1."+x, "255.255.255.0"))
      # Request a public IP address for node1
-     if x ==1
+     if (x == 1):
           node.routable_control_ip = "true"
      # Install and execute a script that is contained in the repository.
      node.addService(pg.Execute(shell="sh", command="/local/repository/silly.sh"))
