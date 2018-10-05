@@ -31,3 +31,13 @@ for x in range(1,4):
      node.addService(pg.Execute(shell="sh", command="/local/repository/silly.sh"))
      # Print the RSpec to the enclosing page.
      pc.printRequestRSpec(request)
+
+link1 = request.Link(members = [node1,node2])
+link2 = request.Link(members = [node1,node3])
+link3 = request.Link(members = [node1,node4])
+link4 = request.Link(members = [node2,node3])
+link5 = request.Link(members = [node2,node4])
+link6 = request.Link(members = [node3,node4])
+
+
+               
