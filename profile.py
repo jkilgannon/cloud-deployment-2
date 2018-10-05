@@ -15,6 +15,10 @@ pc = portal.Context()
 # Create a Request object to start building the RSpec.
 request = pc.makeRequestRSpec()
 
+# Lists for the nodes
+nodeList = []
+linkList = []
+
 for x in range(1,4):
      # Add a XenVM node to the request.
      node = request.XenVM("node"+str(x))
@@ -29,15 +33,11 @@ for x in range(1,4):
           node.routable_control_ip = "true"
      # Install and execute a script that is contained in the repository.
      node.addService(pg.Execute(shell="sh", command="/local/repository/silly.sh"))
+     nodeList.append(node)
      # Print the RSpec to the enclosing page.
      pc.printRequestRSpec(request)
 
-link1 = request.Link(members = [node1,node2])
-link2 = request.Link(members = [node1,node3])
-link3 = request.Link(members = [node1,node4])
-link4 = request.Link(members = [node2,node3])
-link5 = request.Link(members = [node2,node4])
-link6 = request.Link(members = [node3,node4])
-
-
-               
+for i in range(1,4):
+     for j in range(1,4):
+          if (i!=j):
+               linkList.append(request.Link(members = [nodeList(i),nodeList(j)]))
